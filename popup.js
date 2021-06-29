@@ -19,6 +19,6 @@ function setup(){
 
                   chrome.tabs.sendMessage(tabs[0].id, {message: data.word});  //send message to content.js to displau in the console
                 }
-                sendToDatabase()
+                sendDataToServer()
               }) 
 }
