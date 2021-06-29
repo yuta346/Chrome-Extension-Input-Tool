@@ -6,7 +6,7 @@ function setup(){
                 let input = document.getElementById("word");
                 let userInput = input.value;
 
-                async function sendToDatabase(){
+                async function sendDataToServer(){
 
                   const config = {
                                   method: "POST",
