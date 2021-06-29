@@ -1,0 +1,16 @@
+.card{
+    width:200px;
+}
+
+.card-body{
+    text-align: center;
+}
+
+input{
+    height:40px;
+    width:150px;
+}
+
+button{
+    width:100px;
+}

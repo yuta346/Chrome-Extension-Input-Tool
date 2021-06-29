@@ -1,0 +1,16 @@
+{
+    "name": "Flashcard-input",
+    "description": "Chrome extension to get a user input for a flashcard application",
+    "version": "1.0",
+    "manifest_version": 2,
+    "permissions":["tabs"],
+    "content_scripts": [
+        {
+            "matches": ["http://*/*","https://*/*"],
+            "js": [ "content.js" ]
+        }
+    ],
+    "browser_action": {
+        "default_popup":"popup.html",
+        "default_title": "Add a message"}
+}
