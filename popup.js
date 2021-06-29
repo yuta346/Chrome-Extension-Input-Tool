@@ -17,7 +17,7 @@ function setup(){
                   
                   const data = await response.json();
 
-                  chrome.tabs.sendMessage(tabs[0].id, {message: data.word});  //send message to content.js to displau in the console
+                  chrome.tabs.sendMessage(tabs[0].id, {message: data.word});  //send message to content.js to display in the console
                 }
                 sendDataToServer()
               }) 
