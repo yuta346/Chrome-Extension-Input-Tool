@@ -16,8 +16,8 @@ function setup(){
                   const response = await fetch("http://127.0.0.1:5000/", config);
                   
                   const data = await response.json();
-
-                  chrome.tabs.sendMessage(tabs[0].id, {message: data.word});  //send message to content.js to display in the console
+                  
+                  chrome.tabs.sendMessage(tabs[0].id, {result:data.status, word:data.word});  //send message to content.js to display in the console
                 }
                 sendDataToServer()
               }) 
