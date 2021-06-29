@@ -21,6 +21,5 @@ function setup(){
                 }
                 sendToDatabase()
 
-                
               }) 
 }
