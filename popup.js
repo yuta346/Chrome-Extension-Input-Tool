@@ -19,7 +19,7 @@ function setup(){
                                   headers: {"Content-Type": "application/json"},
                                   body: JSON.stringify({word:userInput})}  
 
-                  const response = await fetch("http://127.0.0.1:5000/", config);
+                  const response = await fetch("http://127.0.0.1:5000/add/popup", config);
                   
                   const data = await response.json();
 
