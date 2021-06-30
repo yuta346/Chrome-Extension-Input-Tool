@@ -37,7 +37,6 @@ function setup(){
                     newParagraph.appendChild(text);
                     cardBody.appendChild(newParagraph);
                   }
-                  
                   chrome.tabs.sendMessage(tabs[0].id, {result:data.status, word:data.word});  //send message to content.js to display in the console
                 }
                 sendDataToServer()
