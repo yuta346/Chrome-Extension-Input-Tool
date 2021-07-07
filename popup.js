@@ -1,8 +1,7 @@
-
-document.querySelector("button").addEventListener("click", setup);
+document.querySelector("#addWord").addEventListener("click", setup);
 
 function setup(){
-    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
 
                 let existingMessage = document.getElementById("statusMessage");
                 if(existingMessage){
@@ -12,14 +11,29 @@ function setup(){
                 let input = document.getElementById("word");
                 let userInput = input.value;
 
-                async function sendDataToServer(){
+
+                async function getFromStorage(key) {
+                  return new Promise((resolve, reject) => {
+                      chrome.storage.sync.get(key, resolve);
+                  }).then(result => {
+                          let session_id = result[key]
+                          console.log(session_id)
+                          return session_id;
+                      });
+                }
+ 
+                let session_id = await getFromStorage("session_id");
+            
+
+                async function sendDataToServer(session_id){
 
                   const config = {
                                   method: "POST",
                                   headers: {"Content-Type": "application/json"},
-                                  body: JSON.stringify({word:userInput})}  
+                                  body: JSON.stringify({word:userInput, session_id:session_id})}  
 
-                  const response = await fetch("http://127.0.0.1:5000/add/popup", config);
+                  
+                  const response = await fetch("http://127.0.0.1:5000/api/add_popup", config);
                   
                   const data = await response.json();
 
@@ -37,8 +51,8 @@ function setup(){
                     newParagraph.appendChild(text);
                     cardBody.appendChild(newParagraph);
                   }
-                  chrome.tabs.sendMessage(tabs[0].id, {result:data.status, word:data.word});  //send message to content.js to display in the console
+                  chrome.tabs.sendMessage(tabs[0].id, {status:data.status, word:data.word});  //send message to content.js to display in the console
                 }
-                sendDataToServer()
+                sendDataToServer(session_id)
               }) 
 }
