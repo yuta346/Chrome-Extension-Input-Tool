@@ -33,9 +33,12 @@ function setup(){
                                   body: JSON.stringify({word:userInput, session_id:session_id})}  
 
                   
-                  const response = await fetch("http://127.0.0.1:5000/api/add_popup", config);
+                  const response = await fetch("http://127.0.0.1:5000/api/add/popup", config);
+
+                  console.log(response)
                   
                   const data = await response.json();
+
 
                   let newParagraph = document.createElement('p');
                   newParagraph.setAttribute("id", "statusMessage");

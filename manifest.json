@@ -4,6 +4,7 @@
     "version": "1.0",
     "manifest_version": 2,
     "permissions":["tabs", "storage"],
+    "icons": { "16": "favicon.png"},
     "content_scripts": [
         {
             "matches": ["http://*/*","https://*/*"],
