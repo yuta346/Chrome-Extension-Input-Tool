@@ -18,7 +18,7 @@ function login(){
                                 headers: {"Content-Type": "application/json"},
                                 body: JSON.stringify({username:username, password:password})}  
 
-                const response = await fetch("http://127.0.0.1:5000/api/popup_login", config);
+                const response = await fetch("http://127.0.0.1:5000/api/popup/login", config);
                 
                 const data = await response.json();
 
@@ -32,10 +32,12 @@ function login(){
                         console.log('Value is set to ' + data.session_id);
                     });
                     var text = document.createTextNode("Login Successful")
-
                     chrome.browserAction.setPopup({popup: "popup.html"});
                     newParagraph.appendChild(text);
                     cardBody.appendChild(newParagraph);
+                    setTimeout(()=>{
+                      window.close()
+                    },1200)
                 }else{
                     var text = document.createTextNode("Login Failed")
                     chrome.browserAction.setPopup({popup: "login.html"});

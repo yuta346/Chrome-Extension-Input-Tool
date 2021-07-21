@@ -1,6 +1,14 @@
-.card{
+.card-login{
     width:250px;
-    height:100px;
+    height:150px;
+}
+
+.card-login-title{
+    text-align:center;
+    font-weight:bold;
+    font-size:26px;
+    margin:15px 0 15px 0;
+    padding:0;
 }
 
 .card-add{
@@ -9,17 +17,22 @@
 }
 
 .card-add-header{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.card-add-header-left{
     width:100%;
     display:flex;
     align-items:center;
-    /* justfy-content:center; */
 }
 
-.card-add-header img{
-    margin-left:85px;
+.card-add-header-left img{
+    margin-left:35px;
 }
 
-.card-title{
+.card-add-title{
     /* margin:20px auto; */
     font-size: 24px;
     font-weight:bold;
@@ -65,10 +78,10 @@ input{
     background-color: #24a0ed;
     border-radius:30px;
     color:#FFFF;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     font-weight: bold;
     height:35px;
-    width:40%;
+    width:50%;
     margin-bottom:20px;
     text-align: center;
     text-decoration: none;
@@ -85,4 +98,19 @@ input{
     color: #1DB954;
     margin:0;
     padding-bottom:10px;
+}
+
+#logout{
+    border: none;
+    border-radius: 5px;
+    background-color: #F32013;
+    color:#FFFF;
+    font-size: 0.9rem;
+    font-weight: bold;
+    height:30px;
+    width:80px;
+    margin-bottom:10px;
+    text-align: center;
+    text-decoration: none;
+    margin:10px 38px 0 0 ;
 }
